@@ -31,5 +31,17 @@
     "vite": "2.3.7",
     "vite-plugin-mock": "2.8.0",
     "vue-tsc": "^0.0.24"
-  }
+  },
+  "description": "",
+  "main": "mockProdServer.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sxwxw/lab_admin.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sxwxw/lab_admin/issues"
+  },
+  "homepage": "https://github.com/sxwxw/lab_admin#readme"
 }
