@@ -7,14 +7,14 @@ export default {
     system: {
       name: 'system',
       redirect: 'redirect',
-      '404': '404',
-      '401': '401'
+      404: '404',
+      401: '401'
     },
     page: {
       name: 'page',
-      crudTable: 'crudTable',
-      categoryTable: 'categoryTable',
-      treeTable: 'treeTable',
-    },
-  },
+      userManagement: 'userManagement',
+      userTypeManagement: 'userTypeManagement',
+      UnitManagement: 'treeTable'
+    }
+  }
 }

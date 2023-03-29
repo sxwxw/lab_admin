@@ -3,43 +3,24 @@
     <div class="box">
       <h1>{{ $t(systemTitle) }}</h1>
       <el-form class="form">
-        <el-input
-          size="large"
-          v-model="form.name"
-          :placeholder="$t('message.system.userName')"
-          type="text"
-          maxlength="50"
-        >
+        <el-input size="large" v-model="form.name" :placeholder="$t('message.system.userName')" type="text" maxlength="50">
           <template #prepend>
             <i class="sfont system-xingmingyonghumingnicheng"></i>
           </template>
         </el-input>
-        <el-input
-          size="large"
-          ref="password"
-          v-model="form.password"
-          :type="passwordType"
-          :placeholder="$t('message.system.password')"
-          name="password"
-          maxlength="50"
-        >
+        <el-input size="large" ref="password" v-model="form.password" :type="passwordType" :placeholder="$t('message.system.password')" name="password" maxlength="50">
           <template #prepend>
             <i class="sfont system-mima"></i>
           </template>
           <template #append>
-            <i
-              class="sfont password-icon"
-              :class="passwordType ? 'system-yanjing-guan': 'system-yanjing'"
-              @click="passwordTypeChange"
-            ></i>
+            <i class="sfont password-icon" :class="passwordType ? 'system-yanjing-guan' : 'system-yanjing'" @click="passwordTypeChange"></i>
           </template>
         </el-input>
-        <el-button
-          type="primary"
-          @click="submit"
-          style="width: 100%;"
-          size="medium"
-        >{{ $t('message.system.login') }}</el-button>
+        <el-button type="primary" @click="submit" style="width: 100%" size="medium">{{ $t('message.system.login') }}</el-button>
+        <!-- <el-button type="primary" @click="handlerBtn" style="width: 100%" size="medium">
+          <a href="https://www.baidu.com">前台页面</a>
+        </el-button> -->
+        <el-button type="primary" @click="handlerBtn" style="width: 100%" size="medium">前台页面</el-button>
       </el-form>
       <div class="fixed-top-right">
         <select-lang />
@@ -70,7 +51,7 @@ export default defineComponent({
     })
     const passwordType = ref('password')
     const passwordTypeChange = () => {
-      passwordType.value === '' ? passwordType.value = 'password' : passwordType.value = ''
+      passwordType.value === '' ? (passwordType.value = 'password') : (passwordType.value = '')
     }
     const checkForm = () => {
       return new Promise((resolve, reject) => {
@@ -78,28 +59,26 @@ export default defineComponent({
           ElMessage.warning({
             message: '用户名不能为空',
             type: 'warning'
-          });
-          return;
+          })
+          return
         }
         if (form.password === '') {
           ElMessage.warning({
             message: '密码不能为空',
             type: 'warning'
           })
-          return;
+          return
         }
         resolve(true)
       })
     }
     const submit = () => {
-      checkForm()
-      .then(() => {
+      checkForm().then(() => {
         let params = {
           telphone: form.name,
           password: form.password
         }
-        store.dispatch('user/login', params)
-        .then(() => {
+        store.dispatch('user/login', params).then(() => {
           ElMessage.success({
             message: '登录成功',
             type: 'success',
@@ -109,15 +88,19 @@ export default defineComponent({
           addRoutes()
           router.push(route.query.redirect || '/')
         })
-
       })
+    }
+    const handlerBtn = () => {
+      let href = 'http://localhost:8080/#/home'
+      window.open(href, '_blank')
     }
     return {
       systemTitle,
       form,
       passwordType,
       passwordTypeChange,
-      submit
+      submit,
+      handlerBtn
     }
   }
 })
@@ -160,6 +143,17 @@ export default defineComponent({
       top: 10px;
       right: 10px;
     }
+  }
+}
+.el-button {
+  margin-left: 0;
+  margin-bottom: 20px;
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: #ffff;
   }
 }
 @media screen and (max-width: 750px) {

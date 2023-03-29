@@ -10,6 +10,9 @@ export default {
     delTip: '确定删除选中的数据吗？',
     handle: '操作',
     batchImport: '批量导入',
-    batchExport: '批量导出'
+    batchExport: '批量导出',
+    StartImport: '开始导入',
+    Input: '录入',
+    downloadTemplate: '下载模板'
   }
 }

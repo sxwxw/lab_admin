@@ -10,6 +10,7 @@ export default {
     delTip: 'Are you sure delete the selection data ?',
     handle: 'handle',
     batchImport: 'batch import',
-    batchExport: 'batch export '
+    batchExport: 'batch export ',
+    StartImport: 'start import'
   }
 }

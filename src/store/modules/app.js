@@ -7,11 +7,18 @@ const state = () => ({
   expandOneMenu: true, // 一次是否只能展开一个菜单
   elementSize: 'mini', // element默认尺寸，支持官网四个大小参数
   lang: 'zh', // 默认采用的国际化方案
+
   theme: {
     state: {
       style: 'default',
       primaryColor: '#409eff',
-      menuType: 'side'
+      menuType: 'side',
+      radioval: '1',
+      SignOutTime: 1,
+      sartTimeValue: '',
+      endTimeValue: '',
+      selectBackup: '',
+      BackupTime: ''
     }
   }
 })
@@ -33,9 +40,7 @@ const mutations = {
 }
 
 // actions
-const actions = {
-
-}
+const actions = {}
 
 export default {
   namespaced: true,

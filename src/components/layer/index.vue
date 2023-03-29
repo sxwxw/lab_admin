@@ -1,5 +1,5 @@
 <template>
-  <div v-drag>
+  <div v-drag class="toplayer">
     <el-dialog ref="dialog" v-model="layer.show" :title="layer.title" :width="layer.width" center>
       <slot></slot>
       <template #footer v-if="layer.showButton">
@@ -19,15 +19,10 @@ export default defineComponent({
   props: {
     layer: {
       type: Object,
-      default: () => {
-        return {
-          show: false,
-          title: '',
-          showButton: false,
-          userFlag: ''
-        }
-      },
       required: true
+    },
+    upaod: {
+      type: Object
     }
   },
   directives: {
@@ -50,4 +45,8 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+::v-deep .el-dialog {
+  margin-top: 5vh !important;
+}
+</style>

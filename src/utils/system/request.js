@@ -5,7 +5,7 @@ const baseURL = import.meta.env.VITE_BASE_URL
 
 const service = axios.create({
   baseURL: baseURL,
-  timeout: 5000
+  timeout: 20000
 })
 
 // 请求前的统一处理
@@ -27,7 +27,7 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   response => {
     const res = response.data
-    if (res.code === 200) {
+    if (res.code === 200 || res.code === undefined) {
       return res
     } else {
       showError(res)

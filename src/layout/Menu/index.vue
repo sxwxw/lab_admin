@@ -6,7 +6,7 @@
       text-color="var(--system-menu-text-color)"
       active-text-color="var(--system-primary-color)"
       :default-active="activeMenu"
-      :class="isCollapse? 'collapse': ''"
+      :class="isCollapse ? 'collapse' : ''"
       :collapse="isCollapse"
       :collapse-transition="false"
       :unique-opened="expandOneMenu"
@@ -32,48 +32,72 @@ export default defineComponent({
     const allRoutes = useRouter().options.routes
     const route = useRoute()
     const activeMenu = computed(() => {
-      const { meta, path } = route;
+      const { meta, path } = route
       if (meta.activeMenu) {
-        return meta.activeMenu;
+        return meta.activeMenu
       }
-      return path;
-    });
-    onMounted(() => {
-
+      return path
     })
+    console.log(allRoutes)
+    onMounted(() => {})
     return {
       isCollapse,
       expandOneMenu,
       allRoutes,
-      activeMenu,
+      activeMenu
     }
   }
 })
 </script>
 
 <style lang="scss" scoped>
-  .el-scrollbar {
-    background-color: var(--system-menu-background);
+.el-scrollbar {
+  background-color: var(--system-menu-background);
+}
+.layout-menu {
+  width: 100%;
+  &.collapse {
+    margin-left: 0px;
   }
-  .layout-menu {
-    width: 100%;
-    &.collapse {
-      margin-left: 0px;
+  :deep() {
+    .el-menu-item,
+    .el-submenu {
+      background-color: var(--system-menu-background) !important;
     }
-    :deep() {
-      .el-menu-item, .el-submenu {
-        background-color: var(--system-menu-background) !important;
+    .el-menu-item i,
+    .el-menu-item-group__title,
+    .el-submenu__title i {
+      color: var(--system-menu-text-color);
+    }
+    .el-menu-item,
+    .el-submenu__title {
+      &.is-active {
+        background-color: var(--system-primary-color) !important;
+        color: var(--system-primary-text-color) !important;
+        i {
+          color: var(--system-primary-text-color) !important;
+        }
+        &:hover {
+          background-color: var(--system-primary-color) !important;
+          color: var(--system-primary-text-color) !important;
+        }
       }
-      .el-menu-item i, .el-menu-item-group__title, .el-submenu__title i {
-        color: var(--system-menu-text-color);
+      &:hover {
+        background-color: var(--system-menu-hover-background) !important;
       }
-      .el-menu-item, .el-submenu__title{
+    }
+    .el-submenu {
+      &.is-active {
+        > .el-submenu__title,
+        > .el-submenu__title i {
+          color: var(--system-menu-submenu-active-color) !important;
+        }
+      }
+      .el-menu-item {
+        background-color: var(--system-menu-children-background) !important;
         &.is-active {
           background-color: var(--system-primary-color) !important;
           color: var(--system-primary-text-color) !important;
-          i {
-            color: var(--system-primary-text-color) !important;
-          }
           &:hover {
             background-color: var(--system-primary-color) !important;
             color: var(--system-primary-text-color) !important;
@@ -84,34 +108,14 @@ export default defineComponent({
         }
       }
       .el-submenu {
-        &.is-active {
-          >.el-submenu__title, >.el-submenu__title i {
-            color: var(--system-menu-submenu-active-color) !important;
-          }
-        }
-        .el-menu-item {
+        .el-submenu__title {
           background-color: var(--system-menu-children-background) !important;
-          &.is-active {
-            background-color: var(--system-primary-color) !important;
-            color: var(--system-primary-text-color) !important;
-            &:hover {
-              background-color: var(--system-primary-color) !important;
-              color: var(--system-primary-text-color) !important;
-            }
-          }
           &:hover {
             background-color: var(--system-menu-hover-background) !important;
-          }
-        }
-        .el-submenu {
-          .el-submenu__title {
-            background-color: var(--system-menu-children-background) !important;
-            &:hover {
-              background-color: var(--system-menu-hover-background) !important;
-            }
           }
         }
       }
     }
   }
+}
 </style>

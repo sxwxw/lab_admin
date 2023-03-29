@@ -24,7 +24,7 @@ export default defineComponent({
 .box {
   margin: 20px auto 0;
   width: calc(100% - 40px);
-  height: 400px;
+  height: 500px;
   background: var(--system-page-background);
   padding: 20px 20px 10px;
   overflow: hidden;

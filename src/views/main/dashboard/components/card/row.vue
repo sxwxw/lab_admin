@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="card"
-    :style="{ 'borderColor': row.color }"
-  >
+  <div class="card" :style="{ borderColor: row.color }">
     <div class="card-left">
       <div class="name">{{ row.name }}</div>
       <div class="detail">{{ row.data }}</div>
@@ -20,15 +17,11 @@ export default defineComponent({
     row: {
       type: Object,
       default: () => {
-        return {
-
-        }
+        return {}
       }
     }
   },
-  setup(props) {
-
-  }
+  setup(props) {}
 })
 </script>
 

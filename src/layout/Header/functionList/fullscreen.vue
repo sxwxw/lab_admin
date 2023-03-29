@@ -7,7 +7,6 @@
 <script>
 import { defineComponent } from 'vue'
 import { useFullscreen } from '@vueuse/core'
-
 export default defineComponent({
   name: 'fullscreen',
   setup() {

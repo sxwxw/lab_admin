@@ -18,7 +18,9 @@ import { createNameComponent } from './createNode'
 import Dashboard from './modules/dashboard'
 import Pages from './modules/pages'
 import System from './modules/system'
-
+import Infomation from './modules/infomation'
+import Inout from './modules/inout'
+// import Setup from './modules/setup'
 let modules = [...System]
 
 const { t } = i18n.global
@@ -29,7 +31,7 @@ const router = createRouter({
   history: createWebHashHistory(),
   routes
 })
-let asyncRoutes = [...Dashboard, ...Pages]
+let asyncRoutes = [...Dashboard, ...Pages, ...Infomation, ...Inout]
 // 动态路由的权限新增，供登录后调用
 export function addRoutes() {
   // let data = [
@@ -79,7 +81,7 @@ function eachData(data, type) {
       eachData(d.children, type + 1)
     } else {
       /* 暂时写死，todo项 */
-      d.component = createNameComponent(() => import('@/views/main/pages/crudTable/index.vue'))
+      d.component = createNameComponent(() => import('@/views/main/pages/userManagement/index.vue'))
     }
   })
   console.log(data)

@@ -22,8 +22,8 @@
     </app-link>
     <app-link v-else :to="pathResolve">
       <el-menu-item :index="pathResolve">
-      <i :class="menu.meta.icon" v-if="menu.meta.icon"></i>
-      <template #title>{{ $t(menu.meta.title) }}</template>
+        <i :class="menu.meta.icon" v-if="menu.meta.icon"></i>
+        <template #title>{{ $t(menu.meta.title) }}</template>
       </el-menu-item>
     </app-link>
   </template>
@@ -50,7 +50,8 @@ export default defineComponent({
   setup(props) {
     const menu = props.menu
     // todo: 优化if结构
-    const showMenuType = computed(() => { // 0: 无子菜单， 1：有1个子菜单， 2：显示上下级子菜单
+    const showMenuType = computed(() => {
+      // 0: 无子菜单， 1：有1个子菜单， 2：显示上下级子菜单
       if (menu.children && (menu.children.length > 1 || (menu.children.length === 1 && menu.alwayShow))) {
         return 2
       } else if (menu.children && menu.children.length === 1 && !menu.alwayShow) {
@@ -87,10 +88,10 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-  .el-submenu {
-    text-align: left;
-  }
-  .el-menu-item {
-    text-align: left;
-  }
+.el-submenu {
+  text-align: left;
+}
+.el-menu-item {
+  text-align: left;
+}
 </style>

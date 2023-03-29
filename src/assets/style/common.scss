@@ -34,6 +34,16 @@
     height: 100%;
     padding: 15px;
     overflow: auto;
+    
+  }
+  .el-date-picker {
+    width: 600px;
+  }
+  .el-date-picker .el-picker-panel__content {
+      width: 600px;
+  }
+  .el-picker-panel__icon-btn {
+      font-size: 18px;
   }
 }
 .flex-box {
@@ -89,5 +99,15 @@ a {
       }
     }
   }
+  
  
+}
+.el-table .warning-row {
+  --el-table-tr-bg-color: var(--el-color-warning-lighter);
+}
+.el-table .success-row {
+  --el-table-tr-bg-color: var(--el-color-success-lighter);
+}
+.el-overlay {
+  background-color: rgba(0, 0, 0, 0.2);
 }

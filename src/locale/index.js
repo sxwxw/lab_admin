@@ -2,10 +2,10 @@
 import { createI18n } from 'vue-i18n'
 import store from '@/store'
 
-const files= import.meta.globEager('./modules/*.js')
+const files = import.meta.globEager('./modules/*.js')
 
 let messages = {}
-Object.keys(files).forEach((c) => {
+Object.keys(files).forEach(c => {
   const module = files[c].default
   const moduleName = c.replace(/^\.\/(.*)\/(.*)\.\w+$/, '$2')
   messages[moduleName] = module
@@ -19,6 +19,7 @@ const i18n = createI18n({
   __VUE_I18N_FULL_INSTALL__: false,
   locale: locale,
   fallbackLocale: 'zh-cn',
+  legacy: false,
   messages
 })
 document.querySelector('html').setAttribute('lang', locale)
